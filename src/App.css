@@ -1,0 +1,1118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.checkin-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+.content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1;
+}
+
+.left-section {
+  width: 40%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  z-index: 1;
+}
+
+.logo-image {
+  width: 290px !important;
+  height: 290px !important;
+  object-fit: contain !important;
+}
+
+.rewards-text {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  align-self: stretch;
+}
+
+.waiting-list-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 20px auto;
+  width: 100%;
+  height: 4rem;
+  padding: 1.5rem;
+  background: linear-gradient(45deg, #ff69b4, #ff8c00);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  margin-bottom: 15px;
+  max-width: 300px;
+  align-self: stretch;
+}
+
+.waiting-list-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.waiting-list-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.consent-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.right-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.store-config-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  color: white;
+}
+
+.store-config-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.store-config-popup {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.config-error {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.config-success {
+  color: #4BB543;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.store-config-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.store-config-header h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 0 4px 0;
+}
+
+.store-name {
+  color: #4BB543;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.store-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.store-loader {
+  position: absolute;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+.store-config-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.store-config-buttons button {
+  flex: 1;
+  padding: 6px 0;
+}
+
+.cancel-button {
+  background: #666 !important;
+}
+
+.cancel-button:hover {
+  background: #555 !important;
+}
+
+button.loading {
+  position: relative;
+  color: transparent !important;
+}
+
+button.loading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.store-config-popup label {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.store-config-popup input {
+  background: #222;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.store-config-popup button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.store-config-popup button:hover:not(:disabled) {
+  background: #218838;
+}
+
+.store-config-popup button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input-section {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.text-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.text-section p {
+  color: white;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.phone-display {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 1rem 0;
+  min-height: 2.5rem; /* Match the placeholder height */
+  line-height: 1.2;
+}
+
+.keypad {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Updated grid layout */
+.keypad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.keypad-button {
+  aspect-ratio: 1;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #222;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.digit-button {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.digit-button[key="0"] {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+/* Updated Next button styling for the small version */
+.next-button-small {
+  grid-column: 3;
+  grid-row: 4;
+  background: #28a745 !important;
+  border: none !important;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50% !important;
+  aspect-ratio: 1;
+}
+
+.next-button-small:hover:not(:disabled) {
+  background: #218838 !important;
+  transform: scale(1.05);
+}
+
+.next-button-small.invisible {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.next-button {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  grid-column: 1 / span 3;
+  grid-row: 5;
+  width: 100%;
+  border-radius: 30px !important;
+  aspect-ratio: auto !important;
+  height: 3.5rem !important;
+}
+
+.next-button:hover:not(:disabled) {
+  background: #218838 !important;
+}
+
+.next-button:disabled {
+  background: #666 !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}
+
+.keypad-button:hover:not(:disabled) {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.keypad-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.waitlist-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  z-index: 2001;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.waitlist-panel.entering {
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.waitlist-panel.exiting {
+  animation: slideOut 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.waitlist-panel h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.waitlist-panel h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff69b4, #ff8c00);
+  border-radius: 3px;
+}
+
+.waitlist {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty-waitlist {
+  color: #bbb;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-style: normal;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.waitlist-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.waitlist-name {
+  flex: 1;
+  text-align: left;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.waitlist-name:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+.waitlist-name:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.waitlist-name.selected {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.checkout-button {
+  height: 3.5rem;
+  width: 3.5rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #2ebd4e, #23e0ad);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(40, 167, 69, 0.3);
+}
+
+.checkout-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.no-show-button {
+  height: 3.5rem;
+  width: 3.5rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #dc3545, #f86b6b);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.no-show-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #e73c4e, #ff7979);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(220, 53, 69, 0.3);
+}
+
+.no-show-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.success-message h2 {
+  font-size: 2.5rem;
+  color: #28a745;
+}
+
+.welcome-message {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.points-display {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.points-total {
+  font-size: 2rem;
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.points-earned {
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.points-info {
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.api-message {
+  color: #ff4444;
+  margin-top: 1rem;
+}
+
+.name-display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  min-height: 2.5rem;
+  padding: 0.5rem;
+  min-width: 200px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.name-display:not(:empty) {
+  color: white;
+}
+
+.letter-keyboard {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.letter-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.letter-button {
+  flex: 1;
+  min-width: 2rem;
+  height: 3.5rem;
+  border: none;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 400;
+}
+
+.backspace {
+  flex: 1.5;
+  background: #dc3545;
+}
+
+.letter-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.letter-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.birthday-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.birthday-content {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.birthday-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.calendar-icon {
+  width: 3rem;
+  height: 3rem;
+  color: white;
+}
+
+.birthday-header h2 {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+.birthday-message {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1rem 0 0 0;
+  max-width: 600px;
+}
+
+.optional-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.month-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  min-height: 2.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.month-button {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  aspect-ratio: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-button:hover:not(:disabled) {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.month-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.month-button.selected {
+  background: #4338ca;
+  border-color: #4338ca;
+}
+
+.month-submit {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.month-submit:hover:not(:disabled) {
+  background: #218838;
+  transform: scale(1.02);
+}
+
+.month-submit:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+
+/* Consent text area */
+.consent-area {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 480px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  padding-top: 20pt; /* Add 5pt of padding at the top to move text down */
+  margin-top: 5pt; /* Additional margin to ensure spacing */
+}
+
+/* Make the text slightly smaller if needed to fit better */
+.consent-area label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.consent-checkbox {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Version display */
+.version-display {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  z-index: 1000;
+}
+
+/* Error message styling */
+.error-message {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  background-color: rgba(220, 38, 38, 0.9);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 400px;
+  z-index: 9999;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add this for the consent checkbox conditional styling */
+.consent-checkbox:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Logo styling with stronger selectors */
+.checkin-container .content-container .left-section .logo-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 20px auto 30px auto !important;
+  width: 100% !important;
+}
+
+.checkin-container .content-container .left-section .logo-image {
+  width: 250px !important;
+  height: 250px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Ensure the waiting list button aligns properly with centered text */
+.checkin-container .content-container .left-section .waiting-list-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: calc(100% - 40px) !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  height: 4rem !important;
+}
+
+/* Improved curved content positioning */
+.curved-content {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Better keypad spacing */
+.keypad-container {
+  padding-top: 15px;
+}
+
+/* Replace curved-content with straight layout */
+.curved-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  z-index: 1;
+}
+
+/* Add overlay when waitlist is active */
+.waitlist-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  transition: opacity 0.6s ease-in-out;
+  backdrop-filter: blur(3px);
+}
+
+/* Modernized close button */
+.close-waitlist-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-waitlist-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Add this to App.css */
+@keyframes birthdayBlink {
+  0% { background: rgba(255, 255, 255, 0.08); }
+  50% { background: rgba(255, 215, 0, 0.25); border-color: rgba(255, 215, 0, 0.4); }
+  100% { background: rgba(255, 255, 255, 0.08); }
+}
+
+.waitlist-name.birthday {
+  animation: birthdayBlink 2s infinite ease-in-out;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.backspace-button {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  grid-column: 1;
+  grid-row: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+.backspace-button svg {
+  width: 28px;
+  height: 28px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s, transform 0.2s;
+  stroke: rgba(255, 255, 255, 0.8);
+}
+
+.backspace-button:hover:not(:disabled) svg {
+  color: white;
+  transform: scale(1.1);
+  stroke: white;
+}
+
+.backspace-button:disabled svg {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.keypad-button-placeholder {
+  width: 100%;
+  height: 100%;
+  grid-column: 3;
+  grid-row: 4;
+}
+
+/* Style for invisible buttons - they stay in the DOM but are hidden */
+.keypad-button.invisible {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Styling for policy links and popups */
+.text-link {
+  color: #4a90e2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.policy-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.policy-popup {
+  background: #222;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-popup h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: white;
+  text-align: center;
+}
+
+.policy-popup h4 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+  color: #ddd;
+}
+
+.policy-content {
+  overflow-y: auto;
+  flex: 1;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.policy-close-button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.policy-close-button:hover {
+  background: #444;
+}
+
+.invisible-placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: transparent; /* Makes the text invisible but keeps the space */
+  user-select: none; /* Prevents selection */
+  pointer-events: none; /* Prevents interaction */
+  height: 2.5rem; /* Fixed height */
+  margin: 0;
+  visibility: visible !important; /* Ensure it takes up space */
+  opacity: 0; /* Fully transparent */
+}
+
+/* Add to App.css */
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* If you want to keep the Next button blue */
+.keypad-button.digit-button:not(:disabled):nth-child(12) {
+  background-color: #3b82f6;
+  color: white;
+}

@@ -1,0 +1,200 @@
+.promo-redemption-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.promo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.promo-header {
+  margin-bottom: 30px;
+}
+
+.promo-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.promo-header p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.promo-offer {
+  /* Adjusting dimensions to better match typical promo card proportions */
+  width: 90%;
+  max-width: 400px;
+  height: 180px; /* Fixed height instead of aspect ratio for exact matching */
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000; /* Bright red matching common promo cards */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-offer:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.promo-offer-content {
+  padding: 20px;
+  transform: rotate(-5deg);
+}
+
+.promo-name {
+  /* Adjust font size to ensure text fits properly */
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+.promo-instructions {
+  margin: 30px 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.promo-instructions p {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.return-button {
+  /* Match button style from image */
+  background-color: #4338ca;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.4);
+  transition: all 0.3s;
+  margin-top: 40px;
+  min-width: 220px;
+}
+
+.return-button:hover {
+  background-color: #3730a3;
+  transform: translateY(-2px);
+}
+
+.promo-card {
+  width: 90%;
+  max-width: 400px;
+  border: 2px dashed red;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.promo-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.promo-name {
+  font-size: 48px;
+  font-weight: bold;
+  color: red;
+  margin: 10px 0;
+}
+
+.promo-description {
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+}
+
+.promo-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.promo-button {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid red;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.not-today {
+  background: white;
+  color: red;
+  margin-right: 10px;
+}
+
+.not-today:hover {
+  background: red;
+  color: white;
+}
+
+.redeem-today {
+  background: red;
+  color: white;
+}
+
+.redeem-today:hover {
+  background: white;
+  color: red;
+}
+
+@media (max-height: 700px) {
+  .promo-header h1 {
+    font-size: 28px;
+  }
+  
+  .promo-name {
+    font-size: 42px;
+  }
+  
+  .promo-instructions {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+}
